@@ -1,0 +1,266 @@
+.service-wrapper{
+    float: left;
+    min-height: 170px;
+    min-width: 350px;
+    max-height:170px;
+}
+.img {
+    width: 45px;
+
+}
+#logo{
+    width: 300px;
+
+}
+
+#time{
+    color: #979797;
+    font-size: 10px;
+    float: right;
+}
+#comment_author{
+    color: #fff;
+    background-color: #979797;
+    padding-left: 30px;
+    margin:10px ;
+    font-size: 20px;
+    padding-right: 90px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-right-radius: 100px;
+    text-align: center;
+
+
+    height: 40px;
+}
+.comm-parent{
+    margin-left: 40px;
+}
+
+.basic{
+    float: right;
+    position: absolute;
+    bottom: 220px;
+     pointer-events: none; /* делаем ссылку некликабельной */
+     cursor: default;
+
+}
+.btn a{
+    color: #fff;
+}
+.bg-primary{
+    padding: 12px;
+    border-radius: 20px;
+    width: 50%;
+}
+#comment_text{
+    margin-top: 5px;
+    background: #e5b71f; /* Цвет фона */
+    box-shadow: 0 0 20px rgba(0,0,0,0.5); /* Параметры тени */
+    padding: 10px;
+}
+
+.rating > a:hover:before {
+    content: "\2605";
+    position: absolute;
+}
+.rating {
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    font-size: 20px;
+}
+.rating > a {
+    display: inline-block;
+    position: relative;
+    width: 1.1em;
+}
+.rating > a:hover:before,
+.rating > a:hover ~ span:before {
+    content: "\2605";
+    position: absolute;
+    color:  #e5b71f;;
+}
+
+.container-fluid{
+
+}
+.i_icon{
+
+    padding: 2px;
+}
+.bt-admin{
+
+
+}
+.bt-admin-r{
+
+
+}
+
+
+
+
+@media only screen and (min-width:241px) and (max-width:480px) {
+ .service-wrapper{
+    max-width: 150px;
+}
+#poisc{
+    width:200px;
+}
+.btn{
+    margin: 5px;
+}
+.bt-admin-r{
+    float: right;
+}
+
+
+.btn{
+    text-align:center;
+
+}
+
+}
+
+
+
+@media only screen and (min-width:480px) and (max-width:780px) {
+
+#poisc{
+    width:300px;
+}
+
+    .btn{
+        margin: 5px;
+    }
+    .bt-admin-r{
+        float: right;
+    }
+
+
+
+}
+
+
+@media only screen and (min-width:990px) and (max-width:1500px) {
+    #logo{
+        margin-left: 35px;
+    }
+
+    .main{
+
+        width: 800px;
+    }
+
+
+}
+@media only screen and (min-width:990px) and (max-width:1200px) {
+
+    #poisc{
+        max-width:400px;
+    }
+    .service-wrapper{
+
+        min-width: 300px;
+    }
+    #logo{
+        margin-left: 35px;
+    }
+
+
+
+}
+
+@media only screen and (min-width:600px) and (max-width:990px) {
+
+    #poisc{
+        width:50%;
+
+    }
+    #ser{
+            min-width: 100px;
+    }
+    .service-wrapper{
+
+         width: 100%;
+     }
+    #logo{
+        margin-left: 35px;
+    }
+    .extras form{
+        display: none;
+    }
+
+
+}
+@media only screen and (min-width:500px) and (max-width:600px) {
+    #poisc{
+        width:70%;
+
+        margin-left: 50px;
+
+
+    }
+    #butpoisc{
+
+        margin-left: 80px;
+
+    }
+    .service-wrapper{
+
+          min-width: 70%;
+      }
+    .service-wrapper a {
+
+        min-width: 90%;
+    }
+
+     #ser{
+
+     }
+
+     #maps{
+         width: 300px;
+     }
+
+     .extras form{
+         display: none;
+     }
+}
+@media only screen and (min-width:400px) and (max-width:500px) {
+    #poisc{
+        width:70%;
+
+        margin-left: 50px;
+
+
+    }
+    #logo{
+        min-width: 50%;
+    }
+    #butpoisc{
+
+        margin-left: 80px;
+
+    }
+    .service-wrapper{
+
+        min-width: 90%;
+    }
+    .service-wrapper a {
+
+        min-width: 90%;
+    }
+
+    #ser{
+
+    }
+
+    #maps{
+        width: 300px;
+    }
+
+    .extras form{
+        display: none;
+    }
+}
