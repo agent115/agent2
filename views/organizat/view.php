@@ -1,6 +1,7 @@
 <?php
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use app\models\Organizat;
 
 ?>
 <?php foreach ($organization as $ord): ?>
@@ -84,7 +85,14 @@ use yii\widgets\ActiveForm;
                     <span id="time"><?= $commi->created ?><br/></span>
                     <span id="comment_author"> <?= $commi->comment_author ?></span>
                     <a href="<?= \yii\helpers\Url::to(['site/com', 'com_id' => $commi->comment_id]) ?>"
-                       title="Пожаловаться на комментарий"><i class="glyphicon glyphicon-eye-close"></i></a> <br/>
+                       title="Пожаловаться на комментарий"><i class="glyphicon glyphicon-eye-close"></i></a>
+
+                    <?php if (\Yii::$app->user->identity->username == $commi->comment_author): ?>
+                        <a href="?del=<?= $commi->comment_id ?>" id="com_remove"> <i
+                                class="glyphicon glyphicon-remove"></i></a><br/>
+                    <?php endif; ?>
+
+
                     <div id="comment_text"> <?= $commi->comment_text ?></div><br/>
 
 

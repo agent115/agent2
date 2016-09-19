@@ -32,21 +32,30 @@ $this->params['breadcrumbs'][] = $this->title;
             </button>-->
         </p>
 
+
+
         <?= GridView::widget([
             'dataProvider' => $dataProvider,
+            'filterModel' => $searchModel,
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn'],
-
                 'id',
                 /* 'parent_id',*/
                 /*['attribute'=> 'parent_id',
                 'valuer'=> $data->category->name;
                     ],*/
                 'name',
-                //'keywords',
-                //'description',
-
-                ['class' => 'yii\grid\ActionColumn'],
+                [
+                    'class' => 'yii\grid\ActionColumn',
+                    'template' => '{view} {update} {mydelete}',
+                    'buttons' => [
+                        'mydelete' => function ($url, $model) {
+                            return Html::a(
+                                "<span class=\"glyphicon glyphicon-trash\"></span>",
+                                ['delete', 'id' => $model->id, 'second_hren' => 'hihichpock']);
+                        },
+                    ],
+                ],
             ],
         ]); ?>
     </div>

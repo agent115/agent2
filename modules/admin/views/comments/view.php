@@ -36,14 +36,15 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= DetailView::widget([
         'model' => $model,
         'attributes' => [
-            'comment_id',
+           // 'comment_id',
             'comment_author',
-            'comment_text:ntext',
-            'parent',
-            'approver',
-            'comment_product',
+            'comment_text',
+           // 'comment_text:ntext',
+           // 'parent',
+            //'approver',
+            //'comment_product',
             'created',
-            'is_admin',
+           // 'is_admin',
         ],
     ]) ?>
 

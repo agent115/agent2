@@ -20,6 +20,14 @@ class OrganizatController extends AppController
     function actionView()
     {
         $id = Yii::$app->request->get('id');
+        $del = Yii::$app->request->get('del');
+        if (!empty($del)) {
+            $del_org = Comments::findOne($del);
+            $del_org->delete();
+
+        }
+
+
         $comments = Comments::find()->where(["comment_product" => $id])->all();
         $count = Comments::find()->select(['comment_id'])->where(["comment_product" => $id])->all();
         $counts = count($count);
@@ -56,6 +64,21 @@ class OrganizatController extends AppController
 
     }
 
+    function actionDelete($id)
+    {
+        $this->findModel($id)->delete();
+
+        return $this->redirect(['view']);
+    }
+
+    protected function findModel($id)
+    {
+        if (($model = Category::findOne($id)) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
 
 }
 

@@ -27,7 +27,7 @@ $('.service-wrapper img').hover(
 );
 
 $('ul a').each(function () {
-    if (this.href == location.href) $(this).parent().addClass('active')
+    if (this.href == location.href) $(this).parent().addClass('active');
 
 });
 

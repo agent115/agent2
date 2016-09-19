@@ -58,6 +58,8 @@ AppAsset::register($this);
                         <li><a href="<?= \yii\helpers\Url::to(['site/signup']) ?>">Регистрация</a></li>
                     <?php endif; ?>
                     <?php if (!Yii::$app->user->isGuest): ?>
+
+
                         <li><a href="<?= yii\helpers\Url::to(['/site/logout']) ?>"><i
                                     class="fa fa-user"></i> <?= Yii::$app->user->identity['username'] ?> (Выход)</a>
                         </li>

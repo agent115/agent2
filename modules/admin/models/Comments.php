@@ -46,11 +46,10 @@ class Comments extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'parent_id' => 'Организация',
-            'name' => 'Название',
-            'keywords' => 'Цвет',
-            'comment_text' => 'текс',
+
+            'comment_author' => 'Автор',
+            'created' => 'Время',
+            'comment_text' => 'Текст',
         ];
     }
 }

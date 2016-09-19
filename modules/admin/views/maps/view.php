@@ -10,14 +10,14 @@ $this->title = $model->title;
 $this->params['breadcrumbs'][] = ['label' => 'Maps', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="maps-view cantainer">
+<div class="maps-view cantainer container">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
         <?= Html::a('Обновить', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
         <?= Html::a('Удалить', ['delete', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        
+
     </p>
 
     <?= DetailView::widget([
