@@ -90,6 +90,9 @@
 .container-fluid{
 
 }
+.mainfon{
+    background: beige;
+}
 .i_icon{
 
     padding: 2px;
@@ -120,6 +123,7 @@
 }
 #poisc{
     width:200px;
+    padding: 5px;
 }
 .btn{
     margin: 5px;
@@ -127,7 +131,9 @@
 .bt-admin-r{
     float: right;
 }
-
+    #butpoisc{
+        display: none;
+    }
 
 .btn{
     text-align:center;
@@ -165,8 +171,16 @@
     .maps{
         min-width: 200px;
     }
+    #butpoisc{
+        display: none;
+    }
 
 
+}
+@media only screen and (min-width:780px) and (max-width:990px){
+    #poisc{
+        width: 70%;
+    }
 }
 
 
@@ -208,9 +222,10 @@
 @media only screen and (min-width:600px) and (max-width:990px) {
 
     #poisc{
-        width:50%;
+        width:80%;
 
     }
+
     #ser{
             min-width: 100px;
     }
@@ -229,12 +244,11 @@
 }
 @media only screen and (min-width:500px) and (max-width:600px) {
     #poisc{
-        width:70%;
-
-        margin-left: 50px;
+        width:80%;
 
 
     }
+
     #butpoisc{
 
         margin-left: 80px;
@@ -266,6 +280,7 @@
 
 
     }
+
     #logo{
         min-width: 50%;
     }

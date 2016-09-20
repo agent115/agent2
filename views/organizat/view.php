@@ -5,6 +5,13 @@ use app\models\Organizat;
 
 ?>
 <?php foreach ($organization as $ord): ?>
+    <script>
+        var html = document.documentElement;
+        if(html.clientWidth > 1200) {
+            alert(['Ширина больше' + html.clientWidth])
+        }
+
+    </script>
 
 
     <title> <?= $ord->name ?></title>
@@ -39,8 +46,19 @@ use app\models\Organizat;
             <div class="col-md-6 col-md-offset-3">
                 <?php if (!empty($organization)): ?>
                     <?php foreach ($organization as $ord): ?>
+                        <!--проверка ширины экрана для карты-->
 
-                        <div class="maps"><?= $ord->mars ?></div>
+                        <script>
+                            var html = document.documentElement;
+                            if(html.clientWidth > 1200) {
+                                document.write([<div class="maps"><?= $ord->mars ?></div>]);
+                            }
+
+                        </script>
+
+
+
+
 
                         <h3><?= $ord->name ?></h3>
                         <p><i class="glyphicon glyphicon-earphone"></i>Телефон:<?= $ord->phone ?></p>

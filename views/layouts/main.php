@@ -73,7 +73,7 @@ AppAsset::register($this);
         <a href="<?= yii\helpers\Url::home() ?> "><?= Html::img("@web/images/logo.png", ['id' => 'logo','class'=>'text-center']) ?></a>
         <nav id="mainmenu" class="mainmenu navbar navbar-default main" >
 
-            <div class="container-fluid">
+            <div class="container-fluid mainfon">
 
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
