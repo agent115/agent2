@@ -5,13 +5,6 @@ use app\models\Organizat;
 
 ?>
 <?php foreach ($organization as $ord): ?>
-    <script>
-        var html = document.documentElement;
-        if(html.clientWidth > 1200) {
-            alert(['Ширина больше' + html.clientWidth])
-        }
-
-    </script>
 
 
     <title> <?= $ord->name ?></title>
@@ -48,17 +41,9 @@ use app\models\Organizat;
                     <?php foreach ($organization as $ord): ?>
                         <!--проверка ширины экрана для карты-->
 
-                        <script>
-                            var html = document.documentElement;
-                            if(html.clientWidth > 1200) {
-                                document.write([<div class="maps"><?= $ord->mars ?></div>]);
-                            }
-
-                        </script>
-
-
-
-
+                        <?php if (!empty($ord->mars)): ?>
+                            <div class="maps"><?= $ord->mars ?></div>
+                        <?php endif; ?>
 
                         <h3><?= $ord->name ?></h3>
                         <p><i class="glyphicon glyphicon-earphone"></i>Телефон:<?= $ord->phone ?></p>
@@ -81,31 +66,31 @@ use app\models\Organizat;
 
                 <?php endif; ?>
             </div>
-            <div class="col-md-2 col-md-offset-1">
+            <div class="col-md-2 col-md-offset-1 ">
                 <?php foreach ($Category as $cat): ?>
-                    <a id='icon' title="<?= $cat->name ?>"
+                    <a id='icon' title="<?= $cat->name ?> "
                        href="<?= \yii\helpers\Url::to(['category/view', 'id' => $cat['id']]) ?>"><?= Html::img("@web/{$cat-> description}", ['class' => 'vidget']) ?></a>
                 <?php endforeach; ?>
             </div>
-
-
         </div>
     </div>
-    <div id="com" class="container ">
+    <!--Комментарии-->
+    <div class="container">
         <div class="row">
-            <div class="col-md-6 col-md-offset-3">
 
-
+            <div class="col-md-5 col-md-offset-3">
                 <h3>Отзывы к организации (<?php print_r($counts) ?>)</h3>
                 <hr>
 
 
                 <?php foreach ($comments as $commi): ?>
 
-                    <span id="time"><?= $commi->created ?><br/></span>
+                    <span id="time"><?= $commi->created ?></span><br/>
                     <span id="comment_author"> <?= $commi->comment_author ?></span>
-                    <a href="<?= \yii\helpers\Url::to(['site/com', 'com_id' => $commi->comment_id]) ?>"
-                       title="Пожаловаться на комментарий"><i class="glyphicon glyphicon-eye-close"></i></a>
+                    <?php if (!(\Yii::$app->user->identity->username == $commi->comment_author)): ?>
+                        <a href="<?= \yii\helpers\Url::to(['site/com', 'com_id' => $commi->comment_id]) ?>"
+                           title="Пожаловаться на комментарий"><i class="glyphicon glyphicon-eye-close"></i></a>
+                    <?php endif; ?>
 
                     <?php if (\Yii::$app->user->identity->username == $commi->comment_author): ?>
                         <a href="?del=<?= $commi->comment_id ?>" id="com_remove"> <i
@@ -120,36 +105,25 @@ use app\models\Organizat;
 
                 <?php endforeach; ?>
 
-
-
                 <?php if (!Yii::$app->user->isGuest): ?>
                     <!--//получаем коммент к товару-->
 
 
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-6">
+                    <?php if (Yii::$app->session->hasFlash('success')): ?>
+                        <?= Yii::$app->session->getFlash('success') ?>
+                    <?php endif; ?>
 
-                                <?php if (Yii::$app->session->hasFlash('success')): ?>
-                                    <?= Yii::$app->session->getFlash('success') ?>
-                                <?php endif; ?>
-
-                                <?php $form = ActiveForm::begin(); ?>
+                    <?php $form = ActiveForm::begin(); ?>
 
 
 
-                                <?= $form->field($model, 'comment_text')->textarea(['rows' => 5]) ?>
+                    <?= $form->field($model, 'comment_text')->textarea(['rows' => 5]) ?>
 
-                                <div class="form-group">
-                                    <?= Html::submitButton('ДОБАВИТЬ', ['class' => 'btn btn-primary']) ?>
-                                </div>
-
-                                <?php ActiveForm::end(); ?>
-
-
-                            </div>
-                        </div>
+                    <div class="form-group">
+                        <?= Html::submitButton('ДОБАВИТЬ', ['class' => 'btn btn-primary']) ?>
                     </div>
+
+                    <?php ActiveForm::end(); ?>
 
 
                 <?php else: ?>
@@ -157,8 +131,13 @@ use app\models\Organizat;
                     <h3>Комментарии, <span style="color:red;">вы не зарегестрированный</span></h3>
                 <?php endif; ?>
             </div>
+
         </div>
+
+
     </div>
+
+
 </section>
 
 

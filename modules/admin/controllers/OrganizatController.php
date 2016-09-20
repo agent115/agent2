@@ -63,8 +63,9 @@ class OrganizatController extends Controller
             if ($model->image) {
                 $model->upload();
             }
-            Yii::$app->session->setFlash('success', "Организация {$model->name} добавлена");
+
             return $this->redirect(['view', 'id' => $model->id]);
+
         } else {
             return $this->render('create', [
                 'model' => $model,

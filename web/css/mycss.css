@@ -18,7 +18,7 @@
     font-size: 10px;
     float: right;
     position: absolute;
-    right: 35px;
+    right: 45px;
 }
 #comment_author{
     color: #fff;
@@ -107,11 +107,11 @@
 }
 #com_remove{
   position: absolute;
-
+    margin-left: 15px;
     right: 15px;
 }
 .maps{
-
+    width: 100%;
 }
 
 

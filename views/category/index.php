@@ -24,10 +24,7 @@ use yii\helpers\Html;
             balloonContentHeader: '<?= $map->title ?> ',
 
             balloonContentBody: ' <a href="/web/<?= $map->link?>">Ссылка на организацию</a>',
-
-
-
-
+            
         }, {
             // Опции.
             // Необходимо указать данный тип макета.

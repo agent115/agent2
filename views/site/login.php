@@ -5,7 +5,7 @@
             <h1>Логин</h1>
             <?php
             use yii\widgets\ActiveForm;
-echo \Yii::$app->getSecurity()->generatePasswordHash("123456");
+ \Yii::$app->getSecurity()->generatePasswordHash("123456");
             ?>
             <?php $form = ActiveForm::begin(); ?>
 
@@ -19,10 +19,11 @@ echo \Yii::$app->getSecurity()->generatePasswordHash("123456");
 
             ]) ?>
             <div>
-                <button class="btn btn-success" type="submit">Login</button>
+                <button class="btn btn-success" type="submit">Вход</button>
+                <a class='btn btn-success' href="<?= \yii\helpers\Url::to(['site/signup'])?>">Регистрация</a>
             </div>
 
-            <a href="<?= \yii\helpers\Url::to(['site/signup']) ?>">Регистрация</a>
+
 
             <?php $form = ActiveForm::end(); ?>
 

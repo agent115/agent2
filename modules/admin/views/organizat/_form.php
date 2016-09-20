@@ -31,7 +31,7 @@ mihaildev\elfinder\Assets::noConflict($this);
 
     <?= $form->field($model, 'adress')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'mars')->textarea(['maxlength' => true]) ?>
+    <?= $form->field($model, 'mars')->textarea(array('placeholder' => 'В скрипт карты нужно добавить class="maps"  ПРИМЕР: <iframe class="maps" src="https://www.google.com/maps/embed? ...')) ?>
 
     <?= $form->field($model, 'grafic')->textInput(['maxlength' => true]) ?>
 

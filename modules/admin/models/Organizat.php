@@ -27,15 +27,7 @@ class Organizat extends \yii\db\ActiveRecord
     public $image;
 
     //public $gallery;
-    public function behaviors()
-    {
 
-        return [
-            'image' => [
-                'class' => 'rico\yii2images\behaviors\ImageBehave',
-            ]
-        ];
-    }
 
     /**
      * @inheritdoc
@@ -73,7 +65,7 @@ class Organizat extends \yii\db\ActiveRecord
             'phone' => 'Телефон',
             'phone_2' => 'Телефон 2',
             'adress' => 'Адресс',
-            'mars' => 'Mars',
+            'mars' => 'Карта (Примечание: добавь class="maps")',
             'grafic' => 'График',
             'keywords' => 'Ключевики',
             'description' => 'Описание',
