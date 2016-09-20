@@ -39,8 +39,10 @@ use app\models\Organizat;
             <div class="col-md-6 col-md-offset-3">
                 <?php if (!empty($organization)): ?>
                     <?php foreach ($organization as $ord): ?>
+
                         <div class="maps"><?= $ord->mars ?></div>
-                        <h3><?= $ord->name ?></a></h3>
+
+                        <h3><?= $ord->name ?></h3>
                         <p><i class="glyphicon glyphicon-earphone"></i>Телефон:<?= $ord->phone ?></p>
                         <?php if (!empty($ord->phone_2)): ?>
 
@@ -52,7 +54,7 @@ use app\models\Organizat;
                             <p><i class="glyphicon glyphicon-map-marker"></i>Адрес:<?= $ord->adress ?></p>
                         <?php endif; ?>
                         <?php if (!empty($ord->grafic)): ?>
-                            <p><i class="glyphicon glyphicon-time"></i>График:<?= $ord->grafic ?></p>
+                            <p><i class="glyphicon glyphicon-time"> </i>График: <?= $ord->grafic ?></p>
                         <?php endif; ?>
                         <?php if (!empty($ord->keywords)): ?>
                             <pre><?= $ord->keywords ?></pre>

@@ -1,7 +1,7 @@
 .service-wrapper{
     float: left;
     min-height: 170px;
-    min-width: 350px;
+   /* min-width: 350px;*/
     max-height:170px;
 }
 .img {
@@ -53,7 +53,7 @@
 .bg-primary{
     padding: 12px;
     border-radius: 20px;
-    width: 50%;
+    width: 60%;
     margin-top: 5px;
 }
 #comment_text{
@@ -83,6 +83,9 @@
     position: absolute;
     color:  #e5b71f;;
 }
+.glyphicon{
+    margin: 5px;
+}
 
 .container-fluid{
 
@@ -103,6 +106,9 @@
   position: absolute;
 
     right: 15px;
+}
+.maps{
+
 }
 
 
@@ -131,6 +137,10 @@
     margin-left: 10px;
 
 }
+.breadcrumb li{
+    font-size: 10px;
+
+}
 
 }
 
@@ -152,13 +162,15 @@
         margin-left: 50px;
 
     }
-
+    .maps{
+        min-width: 200px;
+    }
 
 
 }
 
 
-@media only screen and (min-width:990px) and (max-width:1500px) {
+@media only screen and (min-width:990px) and (max-width:2000px) {
     #logo{
         margin-left: 35px;
     }
@@ -166,6 +178,10 @@
     .main{
 
         width: 800px;
+    }
+    .service-wrapper{
+
+        width: 100%;
     }
 
 
@@ -177,7 +193,7 @@
     }
     .service-wrapper{
 
-        min-width: 300px;
+       width: 100%;
     }
     #logo{
         margin-left: 35px;
@@ -200,7 +216,7 @@
     }
     .service-wrapper{
 
-         width: 100%;
+         width: 80%;
      }
     #logo{
         margin-left: 35px;
@@ -224,13 +240,10 @@
         margin-left: 80px;
 
     }
-    .service-wrapper{
 
-          min-width: 70%;
-      }
-    .service-wrapper a {
+    .service-wrapper  {
 
-        min-width: 90%;
+        min-width: 80%;
     }
 
      #ser{
