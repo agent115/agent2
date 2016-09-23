@@ -2,7 +2,7 @@
     <div class="row">
 
         <div class="col-md-5">
-            <h1>Логин</h1>
+            <h1>ВХОД</h1>
             <?php
             use yii\widgets\ActiveForm;
  \Yii::$app->getSecurity()->generatePasswordHash("123456");

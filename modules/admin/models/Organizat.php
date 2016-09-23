@@ -65,7 +65,7 @@ class Organizat extends \yii\db\ActiveRecord
             'phone' => 'Телефон',
             'phone_2' => 'Телефон 2',
             'adress' => 'Адресс',
-            'mars' => 'Карта (Примечание: добавь class="maps")',
+            'mars' => 'Карта',
             'grafic' => 'График',
             'keywords' => 'Ключевики',
             'description' => 'Описание',

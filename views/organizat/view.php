@@ -1,9 +1,12 @@
 <?php
+
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use app\models\Organizat;
 
 ?>
+
+
 <?php foreach ($organization as $ord): ?>
 
 
@@ -41,9 +44,11 @@ use app\models\Organizat;
                     <?php foreach ($organization as $ord): ?>
                         <!--проверка ширины экрана для карты-->
 
-                        <?php if (!empty($ord->mars)): ?>
-                            <div class="maps"><?= $ord->mars ?></div>
-                        <?php endif; ?>
+
+                            <div class="maps"><i class="maps"><?= $ord->mars ?></i><?php if(empty($ord->mars)){
+                                echo '<h2>Карта отсутствует</h2>';
+                                }?></div>
+
 
                         <h3><?= $ord->name ?></h3>
                         <p><i class="glyphicon glyphicon-earphone"></i>Телефон:<?= $ord->phone ?></p>
@@ -52,10 +57,12 @@ use app\models\Organizat;
                             <?php ifelse: ?>
                             <p><i class="glyphicon glyphicon-earphone"></i>Телефон:<?= $ord->phone_2 ?></p>
                         <?php endif; ?>
+
                         <?php if (!empty($ord->adress)): ?>
 
                             <p><i class="glyphicon glyphicon-map-marker"></i>Адрес:<?= $ord->adress ?></p>
                         <?php endif; ?>
+
                         <?php if (!empty($ord->grafic)): ?>
                             <p><i class="glyphicon glyphicon-time"> </i>График: <?= $ord->grafic ?></p>
                         <?php endif; ?>
@@ -85,8 +92,8 @@ use app\models\Organizat;
 
                 <?php foreach ($comments as $commi): ?>
 
-                    <span id="time"><?= $commi->created ?></span><br/>
-                    <span id="comment_author"> <?= $commi->comment_author ?></span>
+                    <span id="time" class="flash animated"><?= $commi->created ?></span><br/>
+                    <span id="comment_author" class="flash animated"> <?= $commi->comment_author ?></span>
                     <?php if (!(\Yii::$app->user->identity->username == $commi->comment_author)): ?>
                         <a href="<?= \yii\helpers\Url::to(['site/com', 'com_id' => $commi->comment_id]) ?>"
                            title="Пожаловаться на комментарий"><i class="glyphicon glyphicon-eye-close"></i></a>
@@ -98,7 +105,7 @@ use app\models\Organizat;
                     <?php endif; ?>
 
 
-                    <div id="comment_text"> <?= $commi->comment_text ?></div><br/>
+                    <div id="comment_text" class="flash animated"> <?= $commi->comment_text ?></div><br/>
 
 
                     <hr>
@@ -106,11 +113,11 @@ use app\models\Organizat;
                 <?php endforeach; ?>
 
                 <?php if (!Yii::$app->user->isGuest): ?>
-                    <!--//получаем коммент к товару-->
+                    <!--//получаем коммент к организации-->
 
 
                     <?php if (Yii::$app->session->hasFlash('success')): ?>
-                        <?= Yii::$app->session->getFlash('success') ?>
+                      
                     <?php endif; ?>
 
                     <?php $form = ActiveForm::begin(); ?>
@@ -128,7 +135,7 @@ use app\models\Organizat;
 
                 <?php else: ?>
 
-                    <h3>Комментарии, <span style="color:red;">вы не зарегестрированный</span></h3>
+                    <h4>Комментарии, <span style="color:red;">вы не зарегестрированный</span></h4>
                 <?php endif; ?>
             </div>
 
@@ -140,5 +147,24 @@ use app\models\Organizat;
 
 </section>
 
+<?php
+/*$js = <<<JS
 
+$(function () {
+
+            $("p").css(
+            {
+                color: "green",
+                backgroundColor: "lightgray"
+            });
+
+        });
+    
+JS;
+
+$this->registerJs($js);*/
+$this->registerJs('
+ $("iframe").addClass("maps");    
+', $this::POS_END,'hello-message');
+?>
 

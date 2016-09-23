@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-5">
-            <h2>Регистрация</h2>
+            <h1>Регистрация</h1>
             <?php
 
             $form = ActiveForm::begin(['class' => "form-horizontal"])

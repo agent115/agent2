@@ -6,9 +6,8 @@ use yii\widgets\ActiveForm;
 use mihaildev\elfinder\InputFile;
 use mihaildev\elfinder\ElFinder;
 use yii\web\JsExpression;
+
 mihaildev\elfinder\Assets::noConflict($this);
-
-
 
 
 /* @var $this yii\web\View */
@@ -19,8 +18,10 @@ mihaildev\elfinder\Assets::noConflict($this);
 <div class="organizat-form">
 
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
+
     <h5><b>Категории</b></h5>
-    <?= $form->field($model, 'category_id')->dropDownList(\yii\helpers\ArrayHelper::map(\app\models\Category::find()->all(), 'id', 'name'),['class' => 'col-md-3 btn stisoc']) ?>
+
+    <?= $form->field($model, 'category_id')->dropDownList(\yii\helpers\ArrayHelper::map(\app\models\Category::find()->all(), 'id', 'name'), ['class' => 'col-md-3 btn stisoc']) ?>
 
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
@@ -31,7 +32,7 @@ mihaildev\elfinder\Assets::noConflict($this);
 
     <?= $form->field($model, 'adress')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'mars')->textarea(array('placeholder' => 'В скрипт карты нужно добавить class="maps"  ПРИМЕР: <iframe class="maps" src="https://www.google.com/maps/embed? ...')) ?>
+    <?= $form->field($model, 'mars')->textarea(array('placeholder' => ' ПРИМЕР: <iframe class="maps" src="https://www.google.com/maps/embed? ...')) ?>
 
     <?= $form->field($model, 'grafic')->textInput(['maxlength' => true]) ?>
 
@@ -41,11 +42,9 @@ mihaildev\elfinder\Assets::noConflict($this);
 
     <?php echo $form->field($model, 'description')->widget(CKEditor::className(), [
 
-  'editorOptions' => ElFinder::ckeditorOptions('elfinder',[/* Some CKEditor Options */])
+        'editorOptions' => ElFinder::ckeditorOptions('elfinder', [/* Some CKEditor Options */])
 
-]);?>
-
-
+    ]); ?>
 
 
 
@@ -56,3 +55,4 @@ mihaildev\elfinder\Assets::noConflict($this);
     <?php ActiveForm::end(); ?>
 
 </div>
+

@@ -1,5 +1,6 @@
 <?php
-
+use app\assets\AppAsset;
+use yii\helpers\Html;
 /* @var $this \yii\web\View */
 /* @var $content string */
 
@@ -7,11 +8,9 @@
 //use yii\bootstrap\Nav;
 //use yii\bootstrap\NavBar;
 //use yii\widgets\Breadcrumbs;
-use app\assets\AppAsset;
-use yii\helpers\Html;
-
 
 AppAsset::register($this);
+
 ?>
 
 <?php $this->beginPage() ?>
@@ -70,7 +69,7 @@ AppAsset::register($this);
                 </ul>
             </div>
         </div>
-        <a href="<?= yii\helpers\Url::home() ?> "><?= Html::img("@web/images/logo.png", ['id' => 'logo','class'=>'text-center']) ?></a>
+        <a  href="<?= yii\helpers\Url::home() ?> "><?= Html::img("@web/images/logo.png", ['id' => 'logo','class'=>'text-center rubberBand animated']) ?></a>
         <nav id="mainmenu" class="mainmenu navbar navbar-default main" >
 
             <div class="container-fluid mainfon">

@@ -28,6 +28,16 @@ print_r(Yii::$app->request->post('idBox'));
             <div class="col-md-6 col-md-offset-3">
                 <?php if (!empty($organization)): ?>
                 <?php foreach ($organization as $ord): ?>
+                <?php
+                if ($ord->rait_count == 0) {
+                    $ord->rait_count = 1;
+                    $row = $ord->raiting / $ord->rait_count;
+                } else {
+                    $row = $ord->raiting / $ord->rait_count;
+                }
+
+                ?>
+                <div class="basic" data-average="<?= $row ?>" data-id="<?= $ord->id ?>"></div>
                 <h3>
                     <a href="<?= \yii\helpers\Url::to(['organizat/view', 'id' => $ord->id, 'idd' => $idd]) ?>"><?= $ord->name ?></a>
                 </h3>
@@ -35,20 +45,20 @@ print_r(Yii::$app->request->post('idBox'));
                 <p><i class="glyphicon glyphicon-earphone i_icon"> </i>Телефон:<?= $ord->phone ?></p>
                 <?php if (!empty($ord->phone_2)): ?>
 
-                    <?php ifelse: ?>
+
                     <p><i class="glyphicon glyphicon-earphone i_icon"> </i>Телефон:<?= $ord->phone_2 ?></p>
                 <?php endif; ?>
 
-
-
+                <?php if (!empty($ord->adress)): ?>
 
                     <p><i class="glyphicon glyphicon-map-marker i_icon"> </i>Адрес:<?= $ord->adress ?></p>
+                <?php endif; ?>
 
                 <?php if (!empty($ord->grafic)): ?>
 
-                <?php else: ?>
-                <p><i class="glyphicon glyphicon-time i_icon"> </i>График:<?= $ord->grafic ?></p>
-                <?php endif;?>
+
+                    <p><i class="glyphicon glyphicon-time i_icon"> </i>График:<?= $ord->grafic ?></p>
+                <?php endif; ?>
 
 
                 <div><b>Оцените организацию<i class="glyphicon glyphicon-arrow-down"></i></b>
@@ -97,50 +107,13 @@ print_r(Yii::$app->request->post('idBox'));
 
                     <?php endif; ?>
                     <?php if ($accessVote == 0): ?>
-                        <div class="posthide">
+                        <div class="posthide rotateInDownLeft animated">
 
                             <?= "<p class=\"bg-primary\">Оценка поставлена</p>" ?>
 
                         </div>
 
                     <?php endif; ?>
-
-
-                    <!--<span class="access"><? /*= $accessVote*/ ?></span>
-							<a class="plus glyphicon glyphicon-plus"></a>
-							<span class="ratingnum"><? /*=$ord->raiting*/ ?></span>
-							<a class="minus glyphicon glyphicon-minus"></a>
-							--><?php
-                    /*							if(!$accessVote){
-                                                    echo 'Вы уже оценили эту организацию';
-                                                }
-                                                */ ?>
-
-                    <br/>
-                    <?php //$a = $ord->raiting/$ord->rait_count;?>
-
-
-                    <?php
-                    if ($ord->rait_count == 0) {
-                        $ord->rait_count = 1;
-                        $row = $ord->raiting / $ord->rait_count;
-                    } else {
-                        $row = $ord->raiting / $ord->rait_count;
-                    }
-
-                    ?>
-
-                    <?php ?>
-
-
-                    <div class="basic" data-average="<?= $row ?>" data-id="<?= $ord->id ?>"></div>
-
-                    <?php // echo"<div class='basic' data-average='$row' data-id='".$ord['id']."'></div>";?>
-
-
-
-
-
 
                     <?php endforeach; ?>
 
